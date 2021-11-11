@@ -39,7 +39,7 @@ South African English (supposedly) has different meanings for the word “now”
 Ensure you add:
 
 ```yaml
-- uses: gtd-actions/now-now@master
+- uses: gtd-actions/now-now@v1
 ```
 
 To your daily `porter.yml`.

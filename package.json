@@ -4,7 +4,7 @@
     "dist": "ncc build src/index.ts --minify --source-map"
   },
   "dependencies": {
-    "marked": "^4.0.0"
+    "marked": "^4.0.8"
   },
   "devDependencies": {
     "@actions/core": "^1.6.0",

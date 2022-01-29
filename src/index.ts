@@ -8,6 +8,7 @@ const issue_number = parseInt((getInput('yesterday') || process.env.GTD_YESTERDA
 const today = parseInt((getInput('today') || process.env.GTD_TODAY)!)
 const token = getInput('token')!
 const octokit = github.getOctokit(token)
+const comment_title = getInput('name')
 
 
 if (issue_number) {
@@ -15,20 +16,26 @@ if (issue_number) {
     owner, repo, issue_number
   })).data
 
-  const parsed = parse(comments)
+  const parsed = parse(comments, comment_title)
 
   let body = ''
+  let h = '##'
+
+  if (comment_title) {
+    body += `# ${comment_title}`
+    h = '##'
+  }
 
   if (parsed['right-now']) body += `
-# Right Now
+${h} Right Now
 ${parsed['right-now']}
 `
   if (parsed['now-now']) body += `
-# Now Now
+${h} Now Now
 ${parsed['now-now']}
 `
   if (parsed['just-now']) body += `
-# Just Now
+${h} Just Now
 <details>
 <summary>${parsed['just-now'].split("\n").length} Items</summary>
 
@@ -37,7 +44,7 @@ ${parsed['just-now']}
 </details>
 `
   if (parsed['now']) body += `
-# Now
+${h} Now
 <details>
 <summary>${parsed['now'].split("\n").length} Items</summary>
 

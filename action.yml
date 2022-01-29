@@ -15,6 +15,12 @@ inputs:
       Today’s entry issue number.
       If unset we use `$GTD_TODAY`.
     required: false
+  name:
+    description: >
+      Look for a comment with this title.
+      eg. `foo` will look for a comment that *begins* with `# foo`.
+      Defaults to a comment titled “Now Now” or “Right Now”.
+    required: false
 runs:
   using: node16
   main: dist/index.js

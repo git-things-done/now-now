@@ -44,6 +44,8 @@ Ensure you add:
 
 To your daily `porter.yml`.
 
+See [`action.yml`](./action.yml) for additional options.
+
 ### Using This Action to Git Things Done
 
 **Right Now** items are considered so urgent they should be done today.
